@@ -19,16 +19,17 @@ Content-Type: application/json
 
 ###
 GET http://localhost:4000/api/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTVjODAwNDc5OTgyNDk2ZjA2ZjcxNWIiLCJpYXQiOjE2MzM0NTk0NTYsImV4cCI6MTYzMzQ1OTQ3NX0._8t8CLjt3R7OhIcpjTehOiqSOD6D7m3C01sQ19ZwYD8
+# add bearer token to Authorization
+# Authorization: Bearer tokengoeshere
 
 ###
 GET http://localhost:4000/api/posts/userinfo
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTVjODAwNDc5OTgyNDk2ZjA2ZjcxNWIiLCJpYXQiOjE2MzM0NTQ0MjQsImV4cCI6MTYzMzQ1NDQ1NH0.10wTHVJXN1boMXUJoaTC9HXzEx_3O6bUHArMOPDOrcA
+# Authorization: Bearer tokengoeshere
 
 ###
 POST  http://localhost:3000/api/posts/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTVjODAwNDc5OTgyNDk2ZjA2ZjcxNWIiLCJpYXQiOjE2MzM0NTk0MjMsImV4cCI6MTYzMzQ1OTQ0Mn0.0JVOw9FQkCXBbNRCzypdXCZtL07jdOgG_DRhWaqyjKo
+# Authorization: Bearer tokengoeshere
 
 {
 "title": "My first post",
