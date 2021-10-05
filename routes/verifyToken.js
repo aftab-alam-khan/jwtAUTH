@@ -6,7 +6,8 @@ module.exports = function (req, res, next) {
     // const token = req.header('accessToken');
     if (!token) return res.status(401).json({
         error: {
-            message: 'Access Denied'
+            name: 'AccessDenied',
+            message: 'Token not found.'
         }
     });
 
@@ -20,7 +21,9 @@ module.exports = function (req, res, next) {
     } catch (err) {
         res.status(403).json({
             error: {
-                message: 'Invalid Token.'
+                name: err.name,
+                message: err.message,
+                expiredAt: err.expiredAt
             }
         });
     }
