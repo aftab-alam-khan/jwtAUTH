@@ -4,20 +4,27 @@ const User = require('../model/User');
 
 const posts = [
     {
-        id: "615c608f6030c88e76c98f9e",
+        id: "615c701ef3f62ff8f4303211",
         title: 'My first post',
-        description: "Id: 615c608f6030c88e76c98f9e, login posts"
+        description: "Id: 615c701ef3f62ff8f4303211, login posts"
     },
     {
-        id: "615c66627f203e76f595a4ad",
+        id: "615c704cf3f62ff8f4303216",
         title: 'My first post',
-        description: "Id: 615c66627f203e76f595a4ad, login posts"
+        description: "Id: 615c704cf3f62ff8f4303216, login posts"
     }
 ];
 
 //Post the data if already login
 router.get('/', verify, async (req, res) => {
-    return res.json(posts.filter(post => post.id === req.user._id))
+    const userPost = posts.filter(post => post.id === req.user._id)
+    const post = (userPost.length !== 0)
+        ? userPost
+        : {
+            userId: req.user._id,
+            message: 'No post found for this userId'
+        };
+    res.json(post);
 });
 
 //Get the Current userinfo

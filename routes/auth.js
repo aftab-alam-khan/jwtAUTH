@@ -51,7 +51,7 @@ router.post('/login', async (req, res) => {
     //Create and assign a token
     //set any secret token like: 'asdkfjaklsdjfkashdfkjh'
     //SECREET KEY GENERATED USING NODEJS "require('crypto').randomBytes(64).toString('hex')"
-    const accessToken = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '19s'});
+    const accessToken = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '30s'});
     res.header('accessToken', accessToken).json({
         message: 'Login Successful! :)',
         accessToken,

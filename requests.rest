@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
 "name": "another user",
-"email":"anotheremail@gmail.com",
+"email":"anotheremail1@gmail.com",
 "password":"12345678"
 }
 
@@ -13,14 +13,14 @@ POST  http://localhost:3000/api/user/login
 Content-Type: application/json
 
 {
-"email":"anotheremail@gmail.com",
+"email":"anotheremail1@gmail.com",
 "password":"12345678"
 }
 
 ###
 GET http://localhost:4000/api/posts
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTVjNjY2MjdmMjAzZTc2ZjU5NWE0YWQiLCJpYXQiOjE2MzM0NDc4ODEsImV4cCI6MTYzMzQ0NzkwMH0.oXQ2XRx0swxit050waTI87JH6X3bzEuxd7sIf9c1o2c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTVjODAwNDc5OTgyNDk2ZjA2ZjcxNWIiLCJpYXQiOjE2MzM0NTI3ODcsImV4cCI6MTYzMzQ1MjgxN30.UVLWFiJzN3r9-2nvzvFSIH_aIx4dHfNmaQd9rhuTNJ0
 
 ###
 GET http://localhost:4000/api/posts/userinfo
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTVjNjY2MjdmMjAzZTc2ZjU5NWE0YWQiLCJpYXQiOjE2MzM0NDc4ODEsImV4cCI6MTYzMzQ0NzkwMH0.oXQ2XRx0swxit050waTI87JH6X3bzEuxd7sIf9c1o2c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTVjODAwNDc5OTgyNDk2ZjA2ZjcxNWIiLCJpYXQiOjE2MzM0NTI3ODcsImV4cCI6MTYzMzQ1MjgxN30.UVLWFiJzN3r9-2nvzvFSIH_aIx4dHfNmaQd9rhuTNJ0
