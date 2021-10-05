@@ -43,16 +43,18 @@ router.post('/login', async (req, res) => {
     //Checking if the user is already in the database
     const user = await User.findOne({ email: req.body.email });
     if (!user) return res.status(400).send("Email doesn't exists.");
+
     //Password is correct
     const validPass = await bcrypt.compare(req.body.password, user.password);
     if (!validPass) return res.status(400).send('Password is Invalid.');
 
     //Create and assign a token
     //set any secret token like: 'asdkfjaklsdjfkashdfkjh'
-    const token = jwt.sign({ _id: user._id }, (process.env.TOKEN_SECRET || 'asdkfjaklsdjfkashdfkjh'));
-    res.header('auth-token', token).json({
+    //SECREET KEY GENERATED USING NODEJS "require('crypto').randomBytes(64).toString('hex')"
+    const accessToken = jwt.sign({ _id: user._id }, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '19s'});
+    res.header('accessToken', accessToken).json({
         message: 'Login Successful! :)',
-        token: token,
+        accessToken,
     });
 
     
