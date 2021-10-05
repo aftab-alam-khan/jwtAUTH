@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const verify = require('./verifyToken');
 const User = require('../model/User');
+const Post = require('../model/Post');
 
 const posts = [
     {
@@ -17,14 +18,38 @@ const posts = [
 
 //Post the data if already login
 router.get('/', verify, async (req, res) => {
-    const userPost = posts.filter(post => post.id === req.user._id)
+
+    const userInfo = await User.findById({
+        _id: req.user._id
+    });
+    const userPost = await Post.find({email: userInfo.email}).select({ _id: 0, title: 1, message: 1 });
+    // res.send(userPost);
     const post = (userPost.length !== 0)
         ? userPost
         : {
-            userId: req.user._id,
+            email: userInfo.email,
             message: 'No post found for this userId'
         };
     res.json(post);
+});
+
+router.post('/create', verify, async (req, res) => {
+    // Create a new User
+    const userInfo = await User.findById({
+        _id: req.user._id
+    });
+
+    const post = new Post({
+        email: userInfo.email,
+        title: req.body.title,
+        message: req.body.message
+    });
+    try {
+        await post.save();
+        res.send(post);
+    } catch (err) {
+        res.status(403).send(err);
+    }
 });
 
 //Get the Current userinfo
