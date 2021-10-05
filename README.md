@@ -9,4 +9,6 @@ then open requests.rest file start to play
 1. `npm start`
 1. `npm run startServer2`
 
-prerequest for please setup the MongoDB in your system. :) 
+we have two servers to play with this need to run both server
+
+pre-request require MongoDB, if don't have setup the MongoDB in your local system. :) 
